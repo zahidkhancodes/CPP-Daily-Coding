@@ -28,11 +28,11 @@ int main() {
     cout << "Your name is ";
     cout << name << endl;
     
-    int len = getLength(name);
+    int length = getLength(name);
     
-    cout << " Length: " << len << endl;
+    cout << " Length: " << length << endl;
     
-    reverse(name, len);
+    reverse(name, length);
     
     cout << "Your name is ";
     cout << name << endl;
