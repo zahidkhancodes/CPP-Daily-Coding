@@ -30,7 +30,7 @@ int main() {
     
     int length = getLength(name);
     
-    cout << " Length: " << length << endl;
+    //cout << " Length: " << length << endl;
     
     reverse(name, length);
     
