@@ -29,4 +29,4 @@ public:
         solve(digits, output, index, ans, mapping);
         return ans;
     }
-};
+}
