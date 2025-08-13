@@ -1,74 +1,64 @@
 #include<iostream>
 using namespace std;
 
+int partition(int arr[],int start,int end){
+  int pivot=arr[start];
+  int count=0;
 
-int partition( int arr[], int s, int e) {
-
-    int pivot = arr[s];
-
-    int cnt = 0;
-    for(int i = s+1; i<=e; i++) {
-        if(arr[i] <=pivot) {
-            cnt++;
-        }
+  for(int i=start+1;i<=end;i++){
+    if(arr[i]<=pivot){
+      count++;
     }
+  }
 
-    //place pivot at right position
-    int pivotIndex = s + cnt;
-    swap(arr[pivotIndex], arr[s]);
+  // pivot ko sahi jagah rakh dete hain
+  int pivotPos=start+count;
+  swap(arr[pivotPos],arr[start]);
 
-    //left and right wala part sambhal lete h 
-    int i = s, j = e;
+  // left aur right parts ko handle karte hain
+  int left=start,right=end;
 
-    while(i < pivotIndex && j > pivotIndex) {
-
-        while(arr[i] <= pivot) 
-        {
-            i++;
-        }
-
-        while(arr[j] > pivot) {
-            j--;
-        }
-
-        if(i < pivotIndex && j > pivotIndex) {
-            swap(arr[i++], arr[j--]);
-        }
-
+  while(left<pivotPos && right>pivotPos){
+    while(arr[left]<=pivot){
+      left++;
     }
-
-    return pivotIndex;
-
+    while(arr[right]>pivot){
+      right--;
+    }
+    if(left<pivotPos && right>pivotPos){
+      swap(arr[left++],arr[right--]);
+    }
+  }
+  return pivotPos;
 }
 
-void quickSort(int arr[], int s, int e) {
+void quickSort(int arr[],int start,int end){
+  // base condition
+  if(start>=end) return;
 
-    //base case
-    if(s >= e) 
-        return ;
+  // partition karte hain
+  int pos=partition(arr,start,end);
 
-    //partitioon karenfe
-    int p = partition(arr, s, e);
+  // left side sort karo
+  quickSort(arr,start,pos-1);
 
-    //left part sort karo
-    quickSort(arr, s, p-1);
-
-    //right wala part sort karo
-    quickSort(arr, p+1, e);
-
+  // right side sort karo  
+  quickSort(arr,pos+1,end);
 }
 
-int main() {
+int main(){
+  int numbers[10]={2,4,1,6,9,9,9,9,9,9};
+  int size=10;
 
-    int arr[10] = {2,4,1,6,9 ,9,9,9,9,9};
-    int n = 10;
+  quickSort(numbers,0,size-1);
 
-    quickSort(arr, 0, n-1);
+  for(int i=0;i<size;i++){
+    cout<<numbers[i]<<" ";
+  }
+  cout<<endl;
 
-    for(int i=0; i<n; i++) 
-    {
-        cout << arr[i] << " ";
-    } cout << endl;
+  return 0;
+}
 
 
     return 0;
