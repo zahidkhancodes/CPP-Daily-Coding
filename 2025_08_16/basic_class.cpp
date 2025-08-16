@@ -34,6 +34,8 @@ class Hero {
 int main() {
 //creation of Object
 Hero ramesh;
+cout<< "Size of Ramesh is " << sizeof(ramesh) << endl;  //Study about padding , greedy alignment to understand.
+    
 cout << "Ramesh health is " << ramesh.getHealth() << endl;
 //use setter
 ramesh.setHealth(70);
