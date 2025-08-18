@@ -10,7 +10,7 @@ class Hero {
     char level;
     
     Hero(){
-        cout<<"Simple comstructor called " <<endl;
+        cout<<"Simple constructor called " <<endl;
         name = new char[100];
     }
     
