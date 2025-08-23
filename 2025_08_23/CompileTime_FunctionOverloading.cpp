@@ -22,7 +22,7 @@ int main(){
     A Greeting;
     Greeting.func();
     Greeting.func("Zahid");
-    Greeting.func('H');
+    Greeting.func('Z');
     
     return 0;
 }
