@@ -21,7 +21,7 @@ class A{
 int main(){
     A Greeting;
     Greeting.func();
-    Greeting.func("Babbar");
+    Greeting.func("Zahid");
     Greeting.func('H');
     
     return 0;
