@@ -77,7 +77,7 @@ int main(){
     return 0;
 }
 
-//5.
+//5. Prime for and Not Prime for
 #include<iostream>
 using namespace std;
 
